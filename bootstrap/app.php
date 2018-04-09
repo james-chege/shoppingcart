@@ -13,7 +13,7 @@ $capsule = new Capsule;
 $capsule->addConnection([
 	'database' => 'cart',
 	'username'=> "root",
-	'password' => "some_secure_password",
+	'password' => "2grateful",
 	'driver' => 'mysql',
 	'host' => "localhost",
     'port'=> 3306,
