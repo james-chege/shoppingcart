@@ -1,0 +1,14 @@
+<table class="table">
+	<tr>
+		<td> Sub total </td>
+		<td>Ksh{{ basket.subTotal | number_format(2)}}</td>
+	</tr>
+	<tr>
+		<td>Shipping</td>
+		<td>Ksh200.00</td>
+	</tr>
+	<tr>
+		<td class="success">Total</td>
+		<td class="success">Ksh{{ (basket.subTotal + 200) | number_format(2)}}</td>
+	</tr>
+</table>
