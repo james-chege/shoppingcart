@@ -9,6 +9,7 @@ use Cart\Models\Product;
 use Cart\Validation\Contracts\ValidatorInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Cart\Validation\Forms\OrderForm;
 
 class OrderController
 {
@@ -44,8 +45,15 @@ class OrderController
 			return $response->withRedirect($this->router->pathFor('cart.index'));
 		}
 
-		// validate (to do use this do composer require respect/validation)
-		var_dump($this->validator);
-		die();
+		// Make sure to do "composer require respect/validation")
+		// var_dump($this->validator);
+		// die();
+		$validator = $this->validator->validate($request, OrderForm::rules());
+
+		if ($validator->fails()) {
+			
+			return $response->withRedirect($this->router->pathFor('order.index'));
+		}
+		die('Create Order');
 	}
 }
